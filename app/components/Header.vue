@@ -1,5 +1,5 @@
 <template>
-    <div dir="rtl" class="bg-transparent flex justify-around rtl items-center">
+    <div dir="rtl" :class="isAbsolute ? 'absolute top-0 left-0 w-full z-50' : 'relative w-full'" class="bg-transparent flex justify-around rtl items-center ">
 
         <div class="basket flex gap-4">
 
@@ -13,12 +13,14 @@
         </div>
 
         <div class="logoMenue flex flex-col">
-            <div class="flex justify-center py-4 w-full mx-auto border-b border-black">
+            <NuxtLink class="flex justify-center py-4 w-full mx-auto border-b border-black" to="/">
+
                 <NuxtImg src="/img/Logo/logo.svg" class="filter brightness-[10%]" alt="logo" width="180" height="50" />
-            </div>
+
+            </NuxtLink>
             <nav class="flex items-center gap-6 justify-center py-2 ">
                 <NuxtLink v-for="item in menuItems" :key="item.link" :to="item.link"
-                    :class="item.highlight ? 'text-blue-500 font-bold ' : 'text-black hover:text-red-500'"
+                    :class="item.highlight ? 'text-red-500 font-bold ' : 'text-black hover:text-red-500'"
                     class="transition text-[12px] font-medium">
                     {{ item.label }}
                 </NuxtLink>
@@ -44,5 +46,11 @@ const menuItems = [
     { label: 'کارت هدیه', link: '/gift' },
 ];
 
+defineProps({
+  isAbsolute: {
+    type: Boolean,
+    default: false
+  }
+})
 
 </script>

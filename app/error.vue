@@ -1,5 +1,6 @@
 <template>
-  <div class="flex items-center justify-center w-screen h-screen bg-gray-100">
+  <div class="flex items-center justify-center w-screen h-screen bg-[#03030d]
+">
     <!-- Container ویدیو -->
     <div class="relative w-[70%] h-[70%]">
       <!-- ویدیو پس‌زمینه -->
