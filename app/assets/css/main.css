@@ -3,11 +3,13 @@
 
 @font-face {
   font-family: 'MyFont';
-  src: url('@/assets/fonts/Iranian Sans.ttf') format('woff2');
-  font-weight: 400;
+  src: url('../fonts/IranianSans.ttf') format('truetype');
+  
   font-style: normal;
   font-display: swap;
 }
+
+
 
 .Toastify__toast-container {
   left: 1.5rem !important;
