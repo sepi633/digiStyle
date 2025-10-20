@@ -11,33 +11,126 @@
         <SocialMedia class="mt-3" />
 
         <div > <h3>ثبت‌نام در خبرنامه دیجی‌استایل</h3></div>
-        <div>
-            <input type="email" class="js-newsletter-input js-text-input o-form__field-input c-new-footer__email-input u-right-placeholder" placeholder="ایمیل خود را وارد کنید">
-        </div>
+        
+        <form @submit.prevent="onSubmit" class="w-full max-w-md">
+    <div class="flex items-center ">
+      <!-- input wrapper -->
+      <div class="flex-1">
+        <label for="email" class="sr-only">ایمیل</label>
+        <input
+          id="email"
+          v-model="email"
+          type="email"
+          inputmode="email"
+          dir="rtl"
+          placeholder="ایمیل خود را وارد کنید"
+          :class="[
+            'w-full px-4 py-2  border transition-all outline-none placeholder-rtl',
+            error ? 'border-red-500' : 'border-gray-300',
+            success ? 'border-green-500' : ''
+          ]"
+          @input="clearMessages"
+          aria-invalid="false"
+          aria-describedby="email-help"
+        />
+      </div>
+
+      <!-- submit button (متن فلش) -->
+    <button
+  type="submit"
+  :disabled="submitting"
+  class="inline-flex items-center justify-center px-4 py-2 bg-gray-800 text-white hover:opacity-90 disabled:opacity-50 transition"
+  aria-label="ارسال ایمیل"
+>
+  ←
+</button>
+
+    </div>
+
+    <!-- پیام خطا / موفقیت -->
+    <p
+      id="email-help"
+      class="mt-2 min-h-[1.25rem] text-sm"
+      aria-live="polite"
+    >
+      <span v-if="error" class="text-red-600 animate-fade">{{ error }}</span>
+      <span v-else-if="success" class="text-green-600 animate-fade">{{ success }}</span>
+    </p>
+  </form>
+
     </div>
 
 </template>
 
-<style scoped></style>
-
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref } from 'vue'
 
-const showButton = ref(false)
+const email = ref('')
+const error = ref('')
+const success = ref('')
+const submitting = ref(false)
 
-const handleScroll = () => {
-  showButton.value = window.scrollY > 300
+// ساده و قابل قبول برای ایمیل (پایه‌ای) — قابل تعویض با الگوی دقیق‌تر در صورت نیاز
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+
+function clearMessages() {
+  error.value = ''
+  success.value = ''
 }
 
-const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+// تابع submit
+async function onSubmit() {
+  // پاک کردن پیام قبلی
+  error.value = ''
+  success.value = ''
+
+  // ولیدیشن: خالی بودن
+  if (!email.value || email.value.trim() === '') {
+    error.value = 'ایمیلتو وارد کن'
+    return
+  }
+
+  // ولیدیشن: فرمت ایمیل
+  if (!emailRegex.test(email.value.trim())) {
+    error.value = 'ایمیلتو درست وارد کن'
+    return
+  }
+
+  // اگر درست بود — شبیه‌سازی ارسال (یا اینجا API call بذار)
+  try {
+    submitting.value = true
+
+    // === اگر خواستی درخواست واقعی بزن:
+    // await $fetch('/api/newsletter', { method: 'POST', body: { email: email.value } })
+
+    // شبیه‌سازی تاخیر سرور
+    await new Promise((r) => setTimeout(r, 700))
+
+    success.value = 'با موفقیت ثبت شد'
+    email.value = ''
+  } catch (e) {
+    error.value = 'خطا در ثبت — دوباره تلاش کن'
+  } finally {
+    submitting.value = false
+  }
 }
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
 </script>
+
+<style scoped>
+/* placeholder راست‌چین */
+.placeholder-rtl::placeholder {
+  /* placeholder راست چین بشه و جهتش RTL */
+  text-align: right;
+  direction: rtl;
+  opacity: 0.6;
+}
+
+/* انیمیشن ساده fade برای پیام‌ها */
+@keyframes fade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade {
+  animation: fade .18s ease both;
+}
+</style>

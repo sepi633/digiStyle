@@ -9,10 +9,10 @@
         
 
         <div  class="countainer flex justify-center gap-[10rem] items-baseline" >
+            <FooterLinks dir="rtl" class="w-[62%] " />
             <div class="w-[290px] h-[300px]">
                 <FooterContactus />
             </div>
-            <FooterLinks dir="rtl" class="w-[62%] " />
         </div>
 
         <div class="download"></div>
