@@ -2,19 +2,18 @@
 
     <div>
         <div dir="rtl" class="flex">
-            <a href="tel:02161930300" class="font-medium text-[14px] hover:text-black transition-colors">
+            <a href="tel:02161930300" class="font-medium text-[14px] hover:text-black transition-colors mx-auto">
                 تلفن پشتیبانی: ۰۲۱-۶۱۹۳۰۳۰۰
             </a>
-
-            <UButton v-if="showButton" @click="scrollToTop" icon="i-heroicons-arrow-up" color="gray"
-                class="fixed bottom-6 right-6 rounded-full p-3 shadow-lg" />
                 
         </div>
 
-        <SocialMedia  />
+        <SocialMedia class="mt-3" />
 
-        <div></div>
-        <div></div>
+        <div > <h3>ثبت‌نام در خبرنامه دیجی‌استایل</h3></div>
+        <div>
+            <input type="email" class="js-newsletter-input js-text-input o-form__field-input c-new-footer__email-input u-right-placeholder" placeholder="ایمیل خود را وارد کنید">
+        </div>
     </div>
 
 </template>

@@ -8,8 +8,8 @@
 
         
 
-        <div  class="countainer flex justify-center gap-[10rem]">
-            <div class="w-[290px] h-[300px] bg-red-400">
+        <div  class="countainer flex justify-center gap-[10rem] items-baseline" >
+            <div class="w-[290px] h-[300px]">
                 <FooterContactus />
             </div>
             <FooterLinks dir="rtl" class="w-[62%] " />
