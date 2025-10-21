@@ -17,7 +17,7 @@
 
         <FooterDownload class="-mt-20" />
 
-        <div class="about-us flex gap-10 w-[85%] justify-between mx-auto">
+        <div class="about-us flex gap-10 w-[85%] justify-between mx-auto ">
 
             <div class="about ">
                 <h3 class="text-[var(--color-text)] mb-2">فروشگاه اینترنتی مد و لباس دیجی‌استایل</h3>
@@ -38,7 +38,7 @@
                     </svg>
                 </NuxtLink>
             </div>
-            <FooterCertificate />
+            <FooterCertificate  />
 
         </div>
 

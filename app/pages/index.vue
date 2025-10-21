@@ -19,8 +19,8 @@
 
   
 
-
-
+    <AdsHome />
+    <CategoryItem />
     <ServicesFeature />
   </div>
 

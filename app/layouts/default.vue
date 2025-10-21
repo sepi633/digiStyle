@@ -1,7 +1,9 @@
 <template>
   <Header :isAbsolute="isHome" ></Header>
-  
-  <slot />
+  <div>
+
+    <slot />
+  </div>
   <!-- <div class=" lg:pt-[120px] ">
   </div> -->
   <Footer :defualt="0"></Footer>
