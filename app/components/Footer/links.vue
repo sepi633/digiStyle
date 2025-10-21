@@ -5,12 +5,12 @@
       :key="index" 
       class="flex flex-col gap-2"
     >
-      <h3 class="font-bold mb-2 text-gray-800">{{ col.title }}</h3>
+      <h3 class="font-bold mb-2 text-[var(--color-text)] text-[15px]">{{ col.title }}</h3>
       <ul class="flex flex-col gap-1">
         <li v-for="(link, i) in col.links" :key="i">
           <NuxtLink 
             :to="link.url" 
-            class="hover:text-black cursor-pointer transition-colors duration-200"
+            class="hover:text-black cursor-pointer transition-colors duration-200 text-sm text-[var(--color-muted)]"
           >
             {{ link.label }}
           </NuxtLink>
@@ -19,20 +19,6 @@
     </div>
   </footer>
 </template>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <script setup>
 const footerColumns = [

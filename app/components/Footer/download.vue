@@ -1,8 +1,8 @@
 <template>
 
-    <div class=" flex justify-between w-[85%] mx-auto items-center border-b border-black p-4 mb-4">
+    <div class=" flex justify-between w-[85%] mx-auto items-center border-b border-black p-4 mb-6">
         <NuxtLink to="https://www.digistyle.com/landing/app/">
-            <h3>دانلود اپلیکیشن دیجی‌استایل</h3>
+            <h3 class="text-[var(--color-text)] text-base">دانلود اپلیکیشن دیجی‌استایل</h3>
 
         </NuxtLink>
 
