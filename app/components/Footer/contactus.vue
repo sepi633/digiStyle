@@ -2,7 +2,7 @@
 
   <div>
     <div dir="rtl" class="flex">
-      <a href="tel:02161930300" class="font-medium text-[14px] transition-colors mx-auto text-[var(--color-text)]">
+      <a href="tel:02161930300" class="font-medium text-[14px] transition-colors mx-auto text-[var(--color-text)] mb-6">
         تلفن پشتیبانی: ۰۲۱-۶۱۹۳۰۳۰۰
       </a>
 
@@ -11,7 +11,7 @@
     <SocialMedia class="mt-3" />
 
     <div class="mt-10 mb-3">
-      <h3 class="text-[var(--color-text)]">ثبت‌نام در خبرنامه دیجی‌استایل</h3>
+      <h3 class="text-[var(--color-text)] ">ثبت‌نام در خبرنامه دیجی‌استایل</h3>
     </div>
 
     <form @submit.prevent="onSubmit" class="w-full max-w-md">

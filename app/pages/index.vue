@@ -13,12 +13,14 @@
 
 
     </div>
-    <UButton color="info">Button</UButton>
+
+   
+    <!-- <UButton color="info">Button</UButton> -->
 
 
 
   
-
+    <HomeBlogsItem />
     <AdsHome />
     <CategoryItem />
     <ServicesFeature />
@@ -43,4 +45,16 @@ const scrollToTop = () => {
 
 onMounted(() => window.addEventListener('scroll', handleScroll))
 onUnmounted(() => window.removeEventListener('scroll', handleScroll))
+
+
+
+
+try{
+    const data = await $fetch(`https://boutiqueline-api.bhptest.ir/api/banner`);
+    console.log(data);
+    
+}catch(error){
+    console.log(error);
+    
+}
 </script>
